@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using OneForDotNet.Core.Config;
 using OneForDotNet.Core.Models;
+using OneForDotNet.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,12 +23,12 @@ namespace OneForDotNet.Core.Spider {
                     var imgNode = item.SelectSingleNode("a");
                     var detailNode = item.SelectSingleNode("div[@class='fp-one-cita-wrapper']");
                     var dateNodes = detailNode.SelectNodes("div[@class='fp-one-titulo-pubdate']/p");
-                    var contentNode = detailNode.SelectSingleNode("div[@class='fp-one-cita']/a");
+                    var titletNode = detailNode.SelectSingleNode("div[@class='fp-one-cita']/a");
                     ones.Add(new One() {
                         Href = imgNode.Attributes["href"].Value,
                         ImageUrl = imgNode.FirstChild.Attributes["src"].Value,
                         Date = $"{dateNodes[1].InnerText} {dateNodes[2].InnerText}",
-                        Content = contentNode.InnerText,
+                        Title = titletNode.InnerText,
                         Vol = dateNodes[0].InnerText
                     });
                 }
@@ -38,17 +39,22 @@ namespace OneForDotNet.Core.Spider {
             List<OneArticle> articles = new List<OneArticle>();
             var root = document.DocumentNode.SelectSingleNode(Xpath.ArticleRoot);
             if (root != null) {
-                var childs = root.SelectNodes("div");
+                var today = root.SelectSingleNode("div[@class='corriente']");
+                var todayDetail = today.SelectSingleNode("p[@class='one-articulo-titulo']/a");
+                articles.Add(new OneArticle() {
+                    Vol = today.SelectSingleNode("p[@class='one-titulo']").InnerText.Trim(),
+                    Href = todayDetail.Attributes["href"].Value,
+                    Title = todayDetail.FirstChild.InnerText.Trim(),
+                    Author = todayDetail.SelectSingleNode("small").InnerText.Remove(0,1)
+                });
+                var childs = root.Descendants("li");
                 foreach (var item in childs) {
-                    var imgNode = item.SelectSingleNode("a");
-                    var detailNode = item.SelectSingleNode("div[@class='fp-one-cita-wrapper']");
-                    var dateNodes = detailNode.SelectNodes("div[@class='fp-one-titulo-pubdate']/p");
-                    var contentNode = detailNode.SelectSingleNode("div[@class='fp-one-cita']/a");
+                    var detail = item.SelectSingleNode("a");
                     articles.Add(new OneArticle() {
-                        Href = imgNode.Attributes["href"].Value,
-                        Vol = dateNodes[0].InnerText,
-                        Title="",
-                        Author=""
+                        Vol = item.SelectSingleNode("span").InnerText,
+                        Href = detail.Attributes["href"].Value,
+                        Title = detail.FirstChild.InnerText.Trim(),
+                        Author = detail.SelectSingleNode("small").InnerText.Remove(0, 1)
                     });
                 }
             }
@@ -58,16 +64,20 @@ namespace OneForDotNet.Core.Spider {
             List<OneQuestion> questions = new List<OneQuestion>();
             var root = document.DocumentNode.SelectSingleNode(Xpath.QuestionRoot);
             if (root != null) {
-                var childs = root.SelectNodes("div");
+                var today = root.SelectSingleNode("div[@class='corriente']");
+                var todayDetail = today.SelectSingleNode("p[@class='one-cuestion-titulo']/a");
+                questions.Add(new OneQuestion() {
+                    Vol = today.SelectSingleNode("p[@class='one-titulo']").InnerText.Trim(),
+                    Href = todayDetail.Attributes["href"].Value,
+                    Title = todayDetail.FirstChild.InnerText.Trim()
+                });
+                var childs = root.Descendants("li");
                 foreach (var item in childs) {
-                    var imgNode = item.SelectSingleNode("a");
-                    var detailNode = item.SelectSingleNode("div[@class='fp-one-cita-wrapper']");
-                    var dateNodes = detailNode.SelectNodes("div[@class='fp-one-titulo-pubdate']/p");
-                    var contentNode = detailNode.SelectSingleNode("div[@class='fp-one-cita']/a");
+                    var detail = item.SelectSingleNode("a");
                     questions.Add(new OneQuestion() {
-                        Href = imgNode.Attributes["href"].Value,
-                        Vol = dateNodes[0].InnerText,
-                        Title = ""
+                        Vol = item.SelectSingleNode("span").InnerText,
+                        Href = detail.Attributes["href"].Value,
+                        Title = detail.FirstChild.InnerText.Trim()
                     });
                 }
             }

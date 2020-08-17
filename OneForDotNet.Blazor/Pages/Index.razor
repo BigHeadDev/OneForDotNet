@@ -1,0 +1,36 @@
+﻿@page "/"
+    <div>
+        <Carousel Autoplay="TimeSpan.FromSeconds(2)">
+            @foreach (var item in Ones) {
+                <CarouselSlick>
+                    <div class="text-center" style="height: 400px">
+                        <div style="background-image: url('@item.ImageUrl');background-size: cover;height: 300px;text-align: center;">
+                            <h5>@item.Vol</h5>
+                            <h5>@item.Date</h5>
+                        </div>
+                        <h5>@item.Title</h5>
+                    </div>
+                </CarouselSlick>
+            }
+        </Carousel>
+        <Divider Orientation="center">One · 文章</Divider>
+        <AntList DataSource="@Articles" TItem="OneArticle">
+            <Item Context="item">
+                <AntListItemMeta Description="@item.Vol">
+                    <Title>
+                        <a href="/article?id=@item.Id">@string.Format("{0} - {1}", item.Author, item.Title)</a>
+                    </Title>
+                </AntListItemMeta>
+            </Item>
+        </AntList>
+        <Divider Orientation="center">One · 问题</Divider>
+        <AntList DataSource="@Questions" TItem="OneQuestion">
+            <Item Context="item">
+                <AntListItemMeta Description="@item.Vol">
+                    <Title>
+                        <a href="/question?id=@item.Id">@item.Title</a>
+                    </Title>
+                </AntListItemMeta>
+            </Item>
+        </AntList>
+    </div>

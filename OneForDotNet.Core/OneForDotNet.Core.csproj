@@ -8,4 +8,8 @@
     <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OneForDotNet.Model\OneForDotNet.Model.csproj" />
+  </ItemGroup>
+
 </Project>

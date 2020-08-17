@@ -8,6 +8,7 @@ namespace OneForDotNet.Core.Config {
         public readonly static string ArticleRoot = "/html/body/div[@class='container']/div[@class='row frontpage']/div[2]/div/div/div[@class='fp-one-articulo']";
         public readonly static string QuestionRoot = "/html/body/div[@class='container']/div[@class='row frontpage']/div[2]/div/div/div[@class='fp-one-cuestion']";
 
+        public readonly static string DetialContentRoot = "/html/body/div[@id='main-container']/div/div/div/div";
 
     }
 }

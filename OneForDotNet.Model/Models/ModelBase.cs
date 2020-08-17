@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OneForDotNet.Core.Models {
+namespace OneForDotNet.Models {
     public class ModelBase {
         public ModelBase() {
             Ts = new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds();

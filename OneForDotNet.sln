@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneForDotNet.Core", "OneForDotNet.Core\OneForDotNet.Core.csproj", "{82AD0169-2FEC-4B54-B96F-1E1AAAE51840}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneForDotNet.WebAPI", "OneForDotNet.WebAPI\OneForDotNet.WebAPI.csproj", "{CAE399C8-493E-4D19-B3B4-D4F90B8250D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneForDotNet.WebAPI", "OneForDotNet.WebAPI\OneForDotNet.WebAPI.csproj", "{CAE399C8-493E-4D19-B3B4-D4F90B8250D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneForDotNet.Blazor", "OneForDotNet.Blazor\OneForDotNet.Blazor.csproj", "{8C6CEA0D-65FB-4A5C-AAAC-90768931F499}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneForDotNet.Blazor", "OneForDotNet.Blazor\OneForDotNet.Blazor.csproj", "{8C6CEA0D-65FB-4A5C-AAAC-90768931F499}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneForDotNet.Model", "OneForDotNet.Model\OneForDotNet.Model.csproj", "{6440ECD7-0029-41AF-B3F5-DF82873D7706}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneForDotNet.Model", "OneForDotNet.Model\OneForDotNet.Model.csproj", "{6440ECD7-0029-41AF-B3F5-DF82873D7706}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

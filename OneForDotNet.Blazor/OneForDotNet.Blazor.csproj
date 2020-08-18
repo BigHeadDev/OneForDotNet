@@ -17,4 +17,8 @@
     <ProjectReference Include="..\OneForDotNet.Model\OneForDotNet.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\sample-data\" />
+  </ItemGroup>
+
 </Project>

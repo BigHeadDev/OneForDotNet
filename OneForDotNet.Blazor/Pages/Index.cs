@@ -11,7 +11,6 @@ namespace OneForDotNet.Blazor.Pages {
     public partial class Index {
         [Inject]
         public HttpClient Client { get; set; }
-
         private List<One> Ones = new List<One>();
         private List<OneArticle> Articles = new List<OneArticle>();
         private List<OneQuestion> Questions = new List<OneQuestion>();

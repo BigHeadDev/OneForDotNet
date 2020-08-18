@@ -9,7 +9,7 @@ using OneForDotNet.Core.Models;
 using OneForDotNet.Models;
 
 namespace OneForDotNet.WebAPI.Controllers {
-    [Route("api/[controller]")]
+    [Route("oneapi/[controller]")]
     [ApiController]
     public class ArticleController : ControllerBase {
         [HttpGet]

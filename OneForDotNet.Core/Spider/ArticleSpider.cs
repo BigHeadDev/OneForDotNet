@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Web;
 
 namespace OneForDotNet.Core.Spider {
     public class ArticleSpider {
@@ -15,6 +16,7 @@ namespace OneForDotNet.Core.Spider {
         }
         public DetailContent GetArticle() {
             var root = document.DocumentNode.SelectSingleNode(Xpath.DetialContentRoot);
+            root.InnerHtml = HttpUtility.HtmlDecode(root.InnerHtml);
             string title = root.SelectSingleNode("h2[@class='articulo-titulo']").InnerText.Trim();
             string author = root.SelectSingleNode("p[@class='articulo-autor']").InnerText.Trim();
             string editor = root.SelectSingleNode("p[@class='articulo-editor']").InnerText.Trim();

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Web;
 
 namespace OneForDotNet.Core.Spider {
     public class QuestionSpider {
@@ -15,6 +16,7 @@ namespace OneForDotNet.Core.Spider {
         }
         public DetailContent GetQuestion() {
             var root = document.DocumentNode.SelectSingleNode(Xpath.DetialContentRoot);
+            root.InnerHtml = HttpUtility.HtmlDecode(root.InnerHtml);
             string title = root.SelectSingleNode("h4[1]").InnerText.Trim();
             string subTitle = root.SelectSingleNode("div[@class='cuestion-contenido']").InnerText.Trim();
             string editor = root.SelectSingleNode("p[@class='cuestion-editor']").InnerText.Trim();

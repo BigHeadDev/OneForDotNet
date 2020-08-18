@@ -1,0 +1,10 @@
+﻿@page "/article/{Id}"
+    <div>
+        <Title style="text-align:center" Level="3">@content.Title</Title>
+        <Title style="text-align:center" Level="4">@content.Subtitle</Title>
+        @foreach (var item in content.Paragraphs) {
+            <Paragraph>@item</Paragraph>
+        }
+        <Title Level="4">@content.Editor</Title>
+    </div>
+

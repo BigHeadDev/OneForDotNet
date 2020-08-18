@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneForDotNet.Blazor", "OneF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneForDotNet.Model", "OneForDotNet.Model\OneForDotNet.Model.csproj", "{6440ECD7-0029-41AF-B3F5-DF82873D7706}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneForDotNet.WPF", "OneForDotNet.WPF\OneForDotNet.WPF.csproj", "{53A79E10-EE74-474F-832C-00D81604C519}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6440ECD7-0029-41AF-B3F5-DF82873D7706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6440ECD7-0029-41AF-B3F5-DF82873D7706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6440ECD7-0029-41AF-B3F5-DF82873D7706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A79E10-EE74-474F-832C-00D81604C519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A79E10-EE74-474F-832C-00D81604C519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A79E10-EE74-474F-832C-00D81604C519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A79E10-EE74-474F-832C-00D81604C519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

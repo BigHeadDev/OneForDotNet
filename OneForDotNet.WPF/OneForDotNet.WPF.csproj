@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HandyControl" Version="2.5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OneForDotNet.Core\OneForDotNet.Core.csproj" />
+    <ProjectReference Include="..\OneForDotNet.Model\OneForDotNet.Model.csproj" />
+  </ItemGroup>
+
+</Project>

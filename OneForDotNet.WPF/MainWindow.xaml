@@ -1,0 +1,130 @@
+﻿<Window x:Class="OneForDotNet.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:handy="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:OneForDotNet.WPF"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="720"
+        Height="1000"
+        MinWidth="720"
+        mc:Ignorable="d">
+    <handy:ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <handy:Carousel x:Name="carousel"
+                            AutoRun="True"
+                            IsCenter="True">
+                <handy:Carousel.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="700" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="100" />
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding ImageUrl}" Stretch="UniformToFill" />
+                            <Border Grid.Row="1"
+                                    Margin="0,0,0,10"
+                                    BorderBrush="FloralWhite"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                <Grid Background="GhostWhite">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid>
+                                        <StackPanel HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Vertical">
+                                            <TextBlock FontSize="15" Text="{Binding Vol}" />
+                                            <TextBlock FontSize="15" Text="{Binding Date}" />
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Column="1" Background="#10666666">
+                                        <TextBlock Margin="5,0"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="20"
+                                                   Text="{Binding Title}"
+                                                   TextWrapping="Wrap" />
+                                    </Grid>
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+                    </DataTemplate>
+                </handy:Carousel.ItemTemplate>
+            </handy:Carousel>
+            <handy:Divider Grid.Row="1" HorizontalContentAlignment="Center" />
+            <Grid Grid.Row="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Background="White">
+                <TextBlock Margin="30,0"
+                           FontSize="15"
+                           Text="One · 文章" />
+            </Grid>
+
+            <ListBox x:Name="listArticle"
+                     Grid.Row="2"
+                     Margin="10"
+                     Style="{DynamicResource ListBoxCustom}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Path Width="20"
+                                  Margin="10,0,10,0"
+                                  HorizontalAlignment="Center"
+                                  Data="{DynamicResource PageModeGeometry}"
+                                  DockPanel.Dock="Left"
+                                  Fill="YellowGreen" />
+                            <TextBlock Padding="10,10,0,10" Text="{Binding Vol}" />
+                            <TextBlock Padding="10" Text="{Binding Title}" />
+                            <TextBlock Padding="0,10" Text="-" />
+                            <TextBlock Padding="0,10" Text="{Binding Author}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <handy:Divider Grid.Row="3" HorizontalContentAlignment="Center" />
+            <Grid Grid.Row="3"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Background="White">
+                <TextBlock Margin="30,0"
+                           FontSize="15"
+                           Text="One · 问题" />
+            </Grid>
+
+            <ListBox x:Name="listQuestion"
+                     Grid.Row="4"
+                     Margin="10"
+                     Style="{DynamicResource ListBoxCustom}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Path Width="20"
+                                  Margin="10,0,10,0"
+                                  HorizontalAlignment="Center"
+                                  Data="{DynamicResource AskGeometry}"
+                                  DockPanel.Dock="Left"
+                                  Fill="YellowGreen" />
+                            <TextBlock Padding="10,10,0,10" Text="{Binding Vol}" />
+                            <TextBlock Padding="10" Text="{Binding Title}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </handy:ScrollViewer>
+
+</Window>

@@ -1,5 +1,7 @@
-﻿using OneForDotNet.Core;
+﻿using HandyControl.Controls;
+using OneForDotNet.Core;
 using OneForDotNet.Models;
+using OneForDotNet.WPF.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +21,7 @@ namespace OneForDotNet.WPF {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window {
+    public partial class MainWindow : BlurWindow {
         public MainWindow() {
             InitializeComponent();
             InitialData();
@@ -32,6 +34,20 @@ namespace OneForDotNet.WPF {
                 carousel.PageIndex = 0;
                 listArticle.ItemsSource = home.Articles;
                 listQuestion.ItemsSource = home.Questions;
+            }
+        }
+
+        private async void listArticle_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var content = await CoreMethod.GetArticle(Convert.ToInt32((e.AddedItems[0] as OneArticle).Id));
+            if (content.Status=="OK") {
+                new DetailContentWindow(content.Data as DetailContent,"One · 文章") { Owner = this}.Show();
+            }
+        }
+
+        private async void listQuestion_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var content = await CoreMethod.GetArticle(Convert.ToInt32((e.AddedItems[0] as OneQuestion).Id));
+            if (content.Status == "OK") {
+                new DetailContentWindow(content.Data as DetailContent, "One · 问题").Show();
             }
         }
     }

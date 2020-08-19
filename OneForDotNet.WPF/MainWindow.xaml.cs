@@ -50,5 +50,21 @@ namespace OneForDotNet.WPF {
                 new DetailContentWindow(content.Data as DetailContent, "One · 问题").Show();
             }
         }
+
+
+        private void ScrollViewer_Loaded(object sender, RoutedEventArgs e) {
+            listArticle.AddHandler(MouseWheelEvent, new RoutedEventHandler(MyMouseWheel), true);
+            listQuestion.AddHandler(MouseWheelEvent, new RoutedEventHandler(MyMouseWheel), true);
+        }
+        private void MyMouseWheel(object sender, RoutedEventArgs e) {
+
+            MouseWheelEventArgs eargs = (MouseWheelEventArgs)e;
+
+            double x = (double)eargs.Delta;
+
+            double y = scroll.VerticalOffset;
+
+            scroll.ScrollToVerticalOffset(y - x);
+        }
     }
 }

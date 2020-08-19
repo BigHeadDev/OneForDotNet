@@ -11,7 +11,7 @@
                   MinWidth="720"
                   WindowStartupLocation="CenterScreen"
                   mc:Ignorable="d">
-    <handy:ScrollViewer>
+    <handy:ScrollViewer x:Name="scroll" Loaded="ScrollViewer_Loaded">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />

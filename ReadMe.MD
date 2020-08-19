@@ -8,4 +8,13 @@
 - Blazor应用采用WebAssembly客户端框架，由于不能跨域访问，未使用Core去获取数据，需要搭配WebAPI服务程序使用
 ---
 ## 截图
+- WPF  
+
+![image](https://github.com/BigHeadDev/OneForDotNet/blob/master/ImagesPreview/WPF.jpg)  
+- Blazor  
+
+![image](https://github.com/BigHeadDev/OneForDotNet/blob/master/ImagesPreview/Blazor.jpg)  
+- WebAPI  
+
+![image](https://github.com/BigHeadDev/OneForDotNet/blob/master/ImagesPreview/WebAPI.jpg)
 

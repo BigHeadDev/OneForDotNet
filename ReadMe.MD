@@ -16,5 +16,11 @@
 ![image](https://github.com/BigHeadDev/OneForDotNet/blob/master/ImagesPreview/Blazor.jpg)  
 - WebAPI  
 
-![image](https://github.com/BigHeadDev/OneForDotNet/blob/master/ImagesPreview/WebAPI.jpg)
+![image](https://github.com/BigHeadDev/OneForDotNet/blob/master/ImagesPreview/WebAPI.jpg)  
+- Xamarin.UWP  
+
+![image](https://github.com/BigHeadDev/OneForDotNet/blob/master/ImagesPreview/Xamarin.UWP.jpg)  
+- Xamarin.Android  
+
+![image](https://github.com/BigHeadDev/OneForDotNet/blob/master/ImagesPreview/Xamarin.Android.jpg)
 

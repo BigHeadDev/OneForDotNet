@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="OneForDotNet.Xamarin.Views.HomePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:OneForDotNet.Xamarin.Behaviors"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="{Binding Title}"
+             mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <CarouselView x:Name="cv"
+                              HeightRequest="500"
+                              ItemsSource="{Binding Home.Ones}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView>
+                                <ContentView.Content>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="150" />
+                                        </Grid.RowDefinitions>
+                                        <Image Aspect="AspectFill">
+                                            <Image.Source>
+                                                <UriImageSource Uri="{Binding ImageUrl}" />
+                                            </Image.Source>
+                                        </Image>
+                                        <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                            <Label Padding="5"
+                                                   HorizontalOptions="Center"
+                                                   Text="{Binding Title}" />
+                                            <StackLayout Padding="5"
+                                                         MinimumWidthRequest="80"
+                                                         Orientation="Vertical">
+                                                <Label HorizontalOptions="Center" Text="{Binding Vol}" />
+                                                <Label HorizontalTextAlignment="Center" Text="{Binding Date}" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Grid>
+                                </ContentView.Content>
+                            </ContentView>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <ListView HeightRequest="450"
+                          ItemsSource="{Binding Home.Articles}"
+                          RowHeight="50"
+                          SelectionMode="None">
+                    <ListView.Behaviors>
+                        <behaviors:EventToCommandBehavior Command="{Binding ArticleSelectedCommand}" EventName="ItemTapped" />
+                    </ListView.Behaviors>
+                    <ListView.Header>
+                        <Label Margin="0,10"
+                               FontSize="Medium"
+                               HorizontalOptions="Center"
+                               Text="One · 文章" />
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                        <Image Margin="10"
+                                               Aspect="AspectFit"
+                                               Source="book.png" />
+                                        <Label Text="{Binding Vol}" VerticalTextAlignment="Center" />
+                                        <Label Text="{Binding Title}" VerticalTextAlignment="Center" />
+                                        <Label Text=" - " VerticalTextAlignment="Center" />
+                                        <Label Text="{Binding Author}" VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView HeightRequest="450"
+                          ItemsSource="{Binding Home.Questions}"
+                          RowHeight="50"
+                          SelectionMode="None">
+                    <ListView.Behaviors>
+                        <behaviors:EventToCommandBehavior Command="{Binding QuestionSelectedCommand}" EventName="ItemTapped" />
+                    </ListView.Behaviors>
+                    <ListView.Header>
+                        <Label Margin="0,10"
+                               FontSize="Medium"
+                               HorizontalOptions="Center"
+                               Text="One · 问题" />
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                        <Image Margin="10"
+                                               Aspect="AspectFit"
+                                               Source="question.png" />
+                                        <Label Text="{Binding Vol}" VerticalTextAlignment="Center" />
+                                        <Label Text="{Binding Title}" VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="OneForDotNet.Xamarin.Views.DetialContentPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="{Binding Title}"
+             mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label FontSize="Title"
+                       HorizontalOptions="Center"
+                       Text="{Binding Content.Title}" />
+                <Label FontSize="Subtitle"
+                       HorizontalOptions="Center"
+                       Text="{Binding Content.Subtitle}" />
+                <Label x:Name="strings" />
+                <Label FontAttributes="Italic"
+                       FontSize="20"
+                       Text="{Binding Content.Editor}"
+                       TextColor="Blue" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

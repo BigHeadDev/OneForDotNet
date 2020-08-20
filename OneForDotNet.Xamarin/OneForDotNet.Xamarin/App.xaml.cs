@@ -1,17 +1,17 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using OneForDotNet.Xamarin.Services;
 using OneForDotNet.Xamarin.Views;
 
 namespace OneForDotNet.Xamarin {
     public partial class App : Application {
-
+        public static INavigation GlobalNavigation { get; private set; }
         public App() {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            var rootPage = new NavigationPage(new HomePage());
+            GlobalNavigation = rootPage.Navigation;
+            MainPage = rootPage;
         }
 
         protected override void OnStart() {

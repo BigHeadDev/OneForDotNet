@@ -2,13 +2,23 @@
 using OneForDotNet.Core.Service;
 using OneForDotNet.Models;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace OneForDotNet.Core {
     public static class CoreMethod {
         private static ApiService service = new ApiService();
+        private static EFService efService = new EFService();
+        private static DateTime updateTime;
         public static async Task<ModelBase> GetHome() {
-            var home = await service.GetHome();
+            ModelBase home = new ModelBase();
+            if (DateTime.Now.DayOfYear-updateTime.DayOfYear>0) {
+                home = await service.GetHome();
+                await efService.UpdateHome(home.Data as Home);
+                updateTime = DateTime.Now;
+            } else {
+                home = await efService.GetHome();
+            }
             return home;
         }
 

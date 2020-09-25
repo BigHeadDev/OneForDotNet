@@ -19,7 +19,7 @@ namespace OneForDotNet.Blazor.Pages {
             Paragraphs = new List<string>()
         };
         protected override async Task OnParametersSetAsync() {
-            var result = await Client.GetFromJsonAsync<DetailContentBase>($"https://localhost:5001/oneapi/article?id={Id}");
+            var result = await Client.GetFromJsonAsync<DetailContentBase>($"http://192.168.0.211:8080/oneapi/article?id={Id}");
             if (result.Status == "OK") {
                 content = result.Data;
             }
